@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Create/Edit Expenses";
+}
+
+@model SpendSmart.Models.ExpenseModel //it defines that in this view, we will make processes about Expense model.
+
+<div class="text-center">
+    <h1 class="display-4">Create or edit expenses</h1>
+</div>
+
+<form asp-action="AfterCreateExpense" asp-controller="Home">
+    <label>Id</label>
+    <input class="form-control" type="number" placeholder="0" asp-for="ExpenseId" />  
+
+    <label class="mt-4">Value</label>
+    <input class="form-control" type="number" placeholder="0.0" asp-for="Value" step="0.01"/>
+
+    <label class="mt-4">Description</label>
+    <input class="form-control" type="text" placeholder="Bills" asp-for="Description" />
+
+    <button class="btn btn-primary mt-4" type="submit">Submit</button>
+</form>
+
+@*because of we defined that the model is ExpenseModel, the values in the input areas will create a new Expense actually.
+    And because of we say asp-action="AfterCreateExpense", the values will be go to the AfterCreateExpense method's parameter.
+    Later we can use this to saving to the database.
+*@

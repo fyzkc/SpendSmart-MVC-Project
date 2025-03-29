@@ -23,6 +23,16 @@ namespace SpendSmart.Controllers
             return View();
         }
 
+        public IActionResult CreateEditExpense()
+        {
+            return View();
+        }
+
+        public IActionResult AfterCreateExpense(ExpenseModel expenseModel) //it will use this parameter to save it to the database
+        {
+            return RedirectToAction("Expenses"); //it will return the Index method which is returning the Index view.
+        }
+
         public IActionResult Privacy()
         {
             return View();
